@@ -1,0 +1,7 @@
+<div *ngIf="series">
+<p>
+  {{series.title}} works! 
+  {{series.creator.pen_name}} created it
+</p>
+<app-blog-list [seriesslug] = "series.slug"></app-blog-list>
+</div>

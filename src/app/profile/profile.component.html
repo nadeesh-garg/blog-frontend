@@ -1,0 +1,9 @@
+<div *ngIf="profile">
+<p>
+  {{profile.pen_name}} profile works! 
+</p>
+<div class = "container">
+<app-blog-list [userId] = "profile.id"></app-blog-list>
+</div>
+
+	

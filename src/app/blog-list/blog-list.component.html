@@ -1,0 +1,36 @@
+<div class = "main">
+	<section class="module">
+	<div class="grid">
+	<form id="blogsearch" role="search" onkeypress="return event.keyCode != 13">
+	    <div class="form-group">
+	        <input type="text" #box (keyup)="onKey(box.value)" class="form-control" placeholder="Search">
+	        <!--ul *ngFor="let blog of blogs">
+	        	<li>{{blog.title}}</li>
+	        </ul-->
+	    </div>
+	</form>
+			<ng-masonry-grid
+					(onNgMasonryInit)="onNgMasonryInit($event)"
+    				[masonryOptions]="{ columnWidth: 300, transitionDuration: '0.5s', gutter: 5 }" 
+                    [useAnimation]="true"
+                    [useImagesLoaded]="true"
+                    [scrollAnimationOptions]="{ animationEffect: 'effect-2', minDuration : 0.3, maxDuration : 0.7 }">
+            <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let blog of blogs; let i = index;">
+			<div class="container">
+             	<h2 class="post-title"><a routerLink="/blogs/{{blog.slug}}">{{ blog.title }}</a></h2>
+										<span>By <a routerLink="/user/{{ blog.author.id }}">{{ blog.author.pen_name}} </a> &nbsp;| {{blog.pub_date | date: 'longDate' }} | 3 Comments </span>
+		      	<div class="post-thumbnail"><a routerLink="/blogs/{{blog.slug}}"><img src="{{blog.welcome_image}}" alt="Blog-post Thumbnail"/></a></div>
+		      	<div class="desc"><p>{{ blog.description }}</p></div>
+				<div class="post-more"><a class="more-link" routerLink="/blogs/{{blog.slug}}">Read more</a></div>
+			</div>
+			</ng-masonry-grid-item>
+		</ng-masonry-grid>
+	</div>
+</section>
+</div>
+
+
+
+
+
+
