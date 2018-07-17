@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Blog } from '../blog';
@@ -13,6 +13,7 @@ import { Global } from '../globals';
 })
 export class BlogComponent implements OnInit {
 blog: Blog;
+isModalOpen=false;
 //blogindexes: BlogIndex[];
 //blogselect: BlogIndex[];
   constructor(
@@ -23,22 +24,30 @@ blog: Blog;
   		) { }
 
   ngOnInit() {
-	this.getBlogIndexList(); 
-	//this.getSlug();	
+  this.getBlogIndexList(); 
+  //this.getSlug();	
+  this.isModalOpen=false;
+  setTimeout(()=>{    //<<<---    using ()=> syntax
+ }, 2000)
   }
 
+  
    getBlogIndexList(): void {
   	const slug = this.route.snapshot.paramMap.get('id');
-   		console.log("ifBlock getBlogIndexList")
+   	//	console.log("ifBlock getBlogIndexList")
    	this.blogservice.getBlog(slug).subscribe(item =>{
    		this.blog = item;
-   		var elem = document.getElementById('blogbody');
-   		var str = this.blog.content;
-   		var re = "\/media";
-   		elem.innerHTML = str.replace(re, Global.BACKEND_URL+re);
+      this.displaycontentHTML(item.content);
    		//console.log();
-   		//elem.innerHTML = ;		
+   		//elem.innerHTcloseByClickingOutside?: boolean;ML = ;		
 	});
-
    }
+
+   displaycontentHTML(content:string): void {
+       var elem = document.getElementById('blogbody');
+       var str = content;
+       var re = "\/media";
+       elem.innerHTML = str.replace(re, Global.BACKEND_URL+re);
+   }
+
 }

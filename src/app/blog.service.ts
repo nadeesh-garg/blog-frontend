@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
  
-import { Observable } from 'rxjs/Observable';
+import { Observable , of } from 'rxjs';
 import { Global } from './globals';
-import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Response } from '@angular/http';
 import { Blog } from './blog';
@@ -28,7 +27,7 @@ export class BlogService {
 
 
   getBlogs(seriesslug?: string, userId?: number): Observable<Blog[]> {
-    let myParams = new HttpParams().set('seriesslug', seriesslug).append('userId': ''+userId);
+    let myParams = new HttpParams().set('seriesslug', seriesslug).append('userId', ''+userId);
     //console.log(myParams);
    	return this.http.get<Blog[]>(this.bloglisturl, {headers: httpOptions.headers, params: myParams})
   	.pipe(

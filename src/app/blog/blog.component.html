@@ -1,7 +1,57 @@
-<p *ngIf="blog">
-  {{blog.title}} works! 
-  {{blog.author.pen_name}} created it
-</p>
+<div class="main" id="baap">
+  <section class="module-small">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-1">
+          <div id="blogpost" class="post">
+            <div class="post-thumbnail"><img src="{{ blog.welcome_image }}"/></div>
+            <div class="post-header font-alt">
+              <h1 class="post-title large-text">{{ blog.title }}</h1>
+              <div class="post-meta">By&nbsp;<a routerLink="/user/{{ blog.author.id }}">{{blog.author.pen_name}}</a>| {{ blog.pub_date | date: 'longDate' }} | <span><a href="#">Photography, </a><a href="#">Web Design</a></span>
+                    </div>
+            </div>
+            <div id="blogbody"></div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3 right-sidebar">
+          <div class="container">
+            <h4 class="widget-title font-alt">Related Terms</h4>
+            <div *ngFor="let tg of blog.tags" class="tags">
+              <a href="#" rel="tag">{{ tg.name }}({{tg.count}})</a>
+            </div>
+            <ng-container *ngIf="blog.series">
+            <div *ngFor="let gn of blog.series.genre" class="tags">
+              <a href="#" rel="tag">{{ gn.name }}({{gn.count}})</a>
+            </div>
+          </ng-container>
+          </div>
+          <br><br><br>
+          <ng-container *ngIf="blog.series">
+          <app-series-thumbnail [series] = "blog.series"></app-series-thumbnail>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<ng-template #loading>Loading User Data...</ng-template>
 
-<div id = "blogbody"></div>
 
+<modal #deleteUserModal id="deleteUser"
+   [show-modal]="isModalOpen"
+   [title]="'Enter Contact Details'"
+   >
+  <div class="popup-content">
+    <p>Please Enter your Email ID. We promise to keep it secure.</p>
+    <form>
+    </form>
+  </div>
+  <div class="popup-footer">
+    <button class="btn cancel"  aria-label="Close" (click)="deleteUserModal.hide()">
+        Cancel
+    </button>
+    <button type="button" class="btn btn-primary" (click)="showAlert2()" aria-label="Close">
+        Delete
+    </button>
+   </div>
+ </modal>

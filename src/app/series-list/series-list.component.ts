@@ -87,9 +87,10 @@ export class SeriesListComponent implements OnInit{
 
 	mess = "Hi Sexy Series"
 
-  }
+  
 
-this.formatDate = function(date){
+formatDate(date): Date{
           var dateOut = new Date(date);
           return dateOut;
     };
+}

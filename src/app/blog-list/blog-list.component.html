@@ -16,13 +16,14 @@
                     [useImagesLoaded]="true"
                     [scrollAnimationOptions]="{ animationEffect: 'effect-2', minDuration : 0.3, maxDuration : 0.7 }">
             <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let blog of blogs; let i = index;">
-			<div class="container">
+			<app-blog-thumbnail [blog]="blog"></app-blog-thumbnail>
+			<!--div class="container">
              	<h2 class="post-title"><a routerLink="/blogs/{{blog.slug}}">{{ blog.title }}</a></h2>
 										<span>By <a routerLink="/user/{{ blog.author.id }}">{{ blog.author.pen_name}} </a> &nbsp;| {{blog.pub_date | date: 'longDate' }} | 3 Comments </span>
 		      	<div class="post-thumbnail"><a routerLink="/blogs/{{blog.slug}}"><img src="{{blog.welcome_image}}" alt="Blog-post Thumbnail"/></a></div>
 		      	<div class="desc"><p>{{ blog.description }}</p></div>
 				<div class="post-more"><a class="more-link" routerLink="/blogs/{{blog.slug}}">Read more</a></div>
-			</div>
+			</div-->
 			</ng-masonry-grid-item>
 		</ng-masonry-grid>
 	</div>

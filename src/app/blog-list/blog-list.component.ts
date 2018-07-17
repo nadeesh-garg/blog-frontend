@@ -83,7 +83,7 @@ export class BlogListComponent implements OnInit{
 
   editBlogList(value): void {
     this.blogs_current = this.filterpipe.transform(this.blogs_all, value);
-    console.log("DEBUG", this.blogs_current);
+    //console.log("DEBUG", this.blogs_current);
   }
   onKey(value: string){
      //this.values += value + ' | ';
@@ -98,9 +98,10 @@ export class BlogListComponent implements OnInit{
 
 	mess = "Hi Sexy"
 
-  }
 
-this.formatDate = function(date){
+formatDate(date): Date{
           var dateOut = new Date(date);
           return dateOut;
     };
+
+}

@@ -16,6 +16,10 @@ import { ProfileComponent } from './profile/profile.component'
 import { SeriesService } from './series.service';
 import { SeriesListComponent } from './series-list/series-list.component';
 import { ProfileService } from './profile.service';
+import { Global } from './globals';
+import { Modal } from './blog/myModal.component';
+import { BlogThumbnailComponent } from './blog-thumbnail/blog-thumbnail.component';
+import { SeriesThumbnailComponent } from './series-thumbnail/series-thumbnail.component'
 
 
 //TODO: Find and store blog-list etc. 
@@ -27,16 +31,24 @@ import { ProfileService } from './profile.service';
     BlogComponent,
     SeriesComponent,
     ProfileComponent,
-    SeriesListComponent 
-    //FilterPipe
+    SeriesListComponent,
+    Modal,
+    BlogThumbnailComponent,
+    SeriesThumbnailComponent    //FilterPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgMasonryGridModule,
-    AppRoutingModule
-  ],
-  providers: [MessagesService, BlogService, FilterPipe, BlogindexService, SeriesService, ProfileService],
+    AppRoutingModule,
+    ],
+  providers: [MessagesService, 
+              BlogService, 
+              FilterPipe, 
+              BlogindexService, 
+              SeriesService, 
+              ProfileService, 
+              Global],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

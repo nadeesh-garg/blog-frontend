@@ -1,0 +1,7 @@
+<div class="container">
+    <h2 class="post-title"><a routerLink="/series/{{series.slug}}">{{ series.title }}</a></h2>
+		<span>By <a routerLink="/user/{{ series.creator.id }}">{{ series.creator.pen_name}} </a> &nbsp;| {{series.pub_date | date: 'longDate' }} | 3 Comments </span>
+		<div class="post-thumbnail"><a routerLink="/series/{{series.slug}}"><img src="{{series.welcome_image}}" alt="Series-post Thumbnail"/></a></div>
+		<div class="desc"><p>{{ series.description }}</p></div>
+	<div class="post-more"><a class="more-link" routerLink="/series/{{series.slug}}">Read more</a></div>
+</div>

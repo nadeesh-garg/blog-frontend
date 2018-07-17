@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import { of } from 'rxjs/observable/of';
+import { BehaviorSubject ,  Observable ,  of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Response } from '@angular/http';
 import { BlogIndex } from './BlogIndex';
