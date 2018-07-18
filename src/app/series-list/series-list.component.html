@@ -1,7 +1,7 @@
 <div class = "main">
 <section class="module">
-<div class="grid">
-	<div class = "container">
+	<div class="row">
+	<div class = "container col-sm-6 col-md-6 col-sm-offset-1" >
 	<form id="searchseries" role="search" onkeypress="return event.keyCode != 13">
 	    <div class="form-group">
 	        <input type="text" #box (keyup)="onKey(box.value)" class="form-control" placeholder="Search">
@@ -10,22 +10,19 @@
 	        </ul-->
 	    </div>
 	</form>
-			<ng-masonry-grid
-					(onNgMasonryInit)="onNgMasonryInit($event)"
-    				[masonryOptions]="{ columnWidth: 300, transitionDuration: '0.5s', gutter: 5 }" 
-                    [useAnimation]="true"
-                    [useImagesLoaded]="true"
-                    [scrollAnimationOptions]="{ animationEffect: 'effect-2', minDuration : 0.3, maxDuration : 0.7 }">
-            <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let ser of series; let i = index;">
-			<div class="container">
-             	<h2 class="post-title"><a routerLink="/series/{{ser.slug}}">{{ ser.title }}</a></h2>
-										<span>By <a routerLink="/user/{{ ser.creator.id }}">{{ ser.creator.pen_name}}</a> &nbsp;| {{ ser.create_date | date: 'longDate' }} | 3 Comments </span>
-		      	<div class="post-thumbnail"><a routerLink="/series/{{ser.slug}}"><img src="{{ser.image}}" alt="Blog-post Thumbnail"/></a></div>
-		      	<div class="desc"><p>{{ ser.description }}</p></div>
-				<div class="post-more"><a class="more-link" routerLink="/series/{{ser.slug}}">Read more</a></div>
+
+            <div class="container">
+            <div id="{{'masonry-series-item-'+i}}" *ngFor="let ser of series; let i = index;">
+			 	<div class="container-fluid" (mouseover)="hoverover(ser, i)"><app-series-thumbnail [arrowtoggle]="currenthover==i" [series]="ser"></app-series-thumbnail></div>
 			</div>
-			</ng-masonry-grid-item>
-		</ng-masonry-grid>
+			<!--/ng-masonry-grid-item>
+		</ng-masonry-grid-->
+	</div>
+	</div>
+	<div class = "container col-sm-6 col-md-6">
+		<div class="scrolling">
+		<app-blog-list *ngIf="slugsearch" [seriesslug] = "slugsearch"></app-blog-list>
+		</div>
 	</div>
 </div>
 </section>

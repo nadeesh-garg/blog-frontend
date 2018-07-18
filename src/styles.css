@@ -830,8 +830,8 @@ a,
 /* Forms size */
 .input-lg,
 .form-horizontal .form-group-lg .form-control {
-  height: 43px;
-  font-size: 13px;
+  height: 42px;
+  font-size: 17px;
 }
 
 .input-sm, .form-horizontal .form-group-sm .form-control {
@@ -1887,6 +1887,10 @@ Google map
 .container .works-grid-3 .work-item {
   width: 33.2%;
 }
+.container-fluid
+{
+  padding: 2%;
+}
 
 .works-grid-4 .work-item {
   width: 25%;
@@ -2925,4 +2929,10 @@ Google map
   .works-grid-5 .work-item {
     width: 100%;
   }
+}
+
+.thumbnail
+{
+  border:1px;
+  color: solid #000000;
 }

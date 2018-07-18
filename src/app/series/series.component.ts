@@ -27,4 +27,5 @@ export class SeriesComponent implements OnInit {
    	console.log("getSeries")
    	this.seriesservice.getSeries(slug).subscribe(item => this.series = item);
 	}
+
 }

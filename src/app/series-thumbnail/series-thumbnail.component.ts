@@ -8,6 +8,7 @@ import { Series } from '../series';
 })
 export class SeriesThumbnailComponent implements OnInit {
   @Input() series: Series;
+  @Input() arrowtoggle: boolean;
   constructor() { }
 
   ngOnInit() {

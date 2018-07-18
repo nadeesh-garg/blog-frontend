@@ -14,11 +14,6 @@ ng-masonry-grid-item {
   width: 600px;
 }
 
-.grid ng-masonry-grid-sub-item {
-  display: block;
-  float: left;
-  width: 150px;
-}
 
 .grid ng-masonry-grid-item.shown,
 .no-js .grid ng-masonry-grid-item,
@@ -242,4 +237,21 @@ ng-masonry-grid-item {
 
 .formTable .col2 {
   width: 100%;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent; 
+  
+  border-left:20px solid black; 
+}
+
+.col-mid {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: relative;
+  align-items: center;
 }

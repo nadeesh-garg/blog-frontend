@@ -1,9 +1,11 @@
-<div class = "main">
-	<section class="module">
-	<div class="grid">
+<div class="main" id="baap">
+  <section class="module">
+    <div class="container-fluid" >
+      <div class="row">
+<div class = "col-sm-12 col-md-12">
 	<form id="blogsearch" role="search" onkeypress="return event.keyCode != 13">
-	    <div class="form-group">
-	        <input type="text" #box (keyup)="onKey(box.value)" class="form-control" placeholder="Search">
+	    <div class="form-group-lg col-sm-5">
+	        <input class="input-lg" type="text" #box (keyup)="onKey(box.value)" class="form-control" placeholder="Search">
 	        <!--ul *ngFor="let blog of blogs">
 	        	<li>{{blog.title}}</li>
 	        </ul-->
@@ -26,8 +28,12 @@
 			</div-->
 			</ng-masonry-grid-item>
 		</ng-masonry-grid>
-	</div>
+</div>
+	
+</div>
+</div>
 </section>
+
 </div>
 
 

@@ -20,19 +20,21 @@ export class SeriesListComponent implements OnInit{
   series_added:Series[];
   series_removed:Series[];
   _masonry: Masonry;
+  currenthover: number;
+  slugsearch: string;
   constructor(private seriesservice: SeriesService, private filterpipe: FilterPipe) { }
 
   ngOnInit() {
-    this.getSeriesList();
-    
+    this.getSeriesList();    
   }
-  //TODO: Note that we require to define function that appends slug to address to open series page 
+  //TODO: Remove Masonry and use full grids 
   getSeriesList(): void {
     this.seriesservice.getSeriesList(this.userId)
-      .subscribe(series => this.series_all = series);
+      .subscribe(series => {
+        this.series_all = series;
+        this.series = series
+      });
     //this.series2 = this.series.map(x => Object.assign({}, x));;
-    this.seriesservice.getSeriesList(this.userId)
-      .subscribe(series => this.series = series);
   }
 
 
@@ -58,7 +60,7 @@ export class SeriesListComponent implements OnInit{
     if(this.series_removed.length > 0 && ! this.series_removed === undefined){
       this.series_removed.forEach(function(item){
                        let i = this.series.indexOf(item);
-                       let elemId = 'masonry-item-${i}';
+                       let elemId = 'masonry-series-item-${i}';
                        if(i>-1){
                          if(this._masonry) {
                            var elem = document.getElementById(elemId);
@@ -70,14 +72,14 @@ export class SeriesListComponent implements OnInit{
     }
   }
 
-  editBlogList(value): void {
+  editSeriesList(value): void {
     this.series_current = this.filterpipe.transform(this.series_all, value);
     console.log("DEBUG", this.series_current);
   }
   onKey(value: string){
      //this.values += value + ' | ';
      //this.series.transform(this.series, value)
-     this.editBlogList(value);
+     this.editSeriesList(value);
      this.elements_remove();
      this.elements_add();
      this.series2 = Object.assign([], this.series); 
@@ -87,6 +89,12 @@ export class SeriesListComponent implements OnInit{
 
 	mess = "Hi Sexy Series"
 
+  hoverover(seriesselect:Series, hoverindex: number): void{
+    this.currenthover=hoverindex;
+
+    this.slugsearch=seriesselect.slug;
+    console.log("SLUG "+this.slugsearch);
+  }
   
 
 formatDate(date): Date{
