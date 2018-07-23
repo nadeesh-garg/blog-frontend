@@ -874,10 +874,11 @@ a:hover, a:focus {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 p, ol, ul, blockquote {
+  font-size: 14px;
   margin: 0 0 24px;
 }
 
@@ -2170,7 +2171,8 @@ Google map
 }
 
 .post-meta {
-  font-size: 14px;
+  text-transform: uppercase;
+  font-size: 17px;
   color: #aaa;
 }
 
@@ -2416,15 +2418,21 @@ Google map
 .tags a {
   background: #111;
   display: inline-block;
-  font-size: 10px;
+  font-size: 14px;
   color: #fff;
   padding: 4px 10px 4px 12px;
   margin: 0 1px 4px;
   border-radius: 2px;
 }
 
+.tag-holder {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+
 .tags a:hover {
-  background: rgba(17, 17, 17, 0.8);
+  background: rgba(17, 17, 17, 0.6);
 }
 
 /*--------------------------------------------------------------
@@ -2935,4 +2943,16 @@ Google map
 {
   border:1px;
   color: solid #000000;
+}
+
+.card {
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+}
+
+img {
+    border-radius: 5px 5px 0 0;
 }

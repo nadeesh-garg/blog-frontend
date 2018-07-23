@@ -1,9 +1,7 @@
 <div *ngIf="profile">
-<p>
-  {{profile.pen_name}} profile works! 
-</p>
+<app-profile-summary [leftfirst]="true" [profile]="profile"></app-profile-summary>
 <div class = "container">
-<app-blog-list [userId] = "profile.id"></app-blog-list>
+<app-blog-list [userId] = "profile.slug"></app-blog-list>
 </div>
 
 	

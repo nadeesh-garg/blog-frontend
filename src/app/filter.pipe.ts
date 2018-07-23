@@ -20,13 +20,14 @@ import { Pipe, PipeTransform } from '@angular/core';
           return true;
         }
          if(property =='tags' || property =='genre'){
-           if(item[property].some(e => e.name.toString().toLowerCase().includes(term.toLowerCase()))){
+
+           if(item[property].length>0 && item[property].some(e => e.name.toString().toLowerCase().includes(term.toLowerCase()))){
            //console.log(item[property]);
           return true;
          }
 
         }
-         if(property='title'){
+         if(property=='title'){
            if(item[property].toString().toLowerCase().includes(term.toLowerCase())){
           return true;
             }

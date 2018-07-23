@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
 
 
 	getProfile(): void {
-  	const id = +this.route.snapshot.paramMap.get('id');
+  	const id = ""+this.route.snapshot.paramMap.get('id');
   	console.log("getProfile")
    	this.profileservice.getProfile(id).subscribe(item => this.profile = item);
 	}

@@ -1,10 +1,11 @@
 <div class="main" id="baap">
   <section class="module">
-    <div class="container-fluid" >
+    <div class="container-fluid rounded" style="border: 1px solid #cccccc">
       <div class="row">
-<div class = "col-sm-12 col-md-12">
+<div class = "col-sm-12 col-md-12" align="center">
+	<br>
 	<form id="blogsearch" role="search" onkeypress="return event.keyCode != 13">
-	    <div class="form-group-lg col-sm-5">
+	    <div class="form-group col-sm-5">
 	        <input class="input-lg" type="text" #box (keyup)="onKey(box.value)" class="form-control" placeholder="Search">
 	        <!--ul *ngFor="let blog of blogs">
 	        	<li>{{blog.title}}</li>

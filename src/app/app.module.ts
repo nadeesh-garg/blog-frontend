@@ -19,7 +19,9 @@ import { ProfileService } from './profile.service';
 import { Global } from './globals';
 import { Modal } from './blog/myModal.component';
 import { BlogThumbnailComponent } from './blog-thumbnail/blog-thumbnail.component';
-import { SeriesThumbnailComponent } from './series-thumbnail/series-thumbnail.component'
+import { SeriesThumbnailComponent } from './series-thumbnail/series-thumbnail.component';
+import { ProfileSummaryComponent } from './profile-summary/profile-summary.component';
+import { BlogThumbnailSmallComponent } from './blog-thumbnail-small/blog-thumbnail-small.component'
 
 
 //TODO: Find and store blog-list etc. 
@@ -34,7 +36,9 @@ import { SeriesThumbnailComponent } from './series-thumbnail/series-thumbnail.co
     SeriesListComponent,
     Modal,
     BlogThumbnailComponent,
-    SeriesThumbnailComponent    //FilterPipe
+    SeriesThumbnailComponent,
+    ProfileSummaryComponent,
+    BlogThumbnailSmallComponent    //FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -32,12 +32,12 @@ export class ProfileService {
   }
 
   /** GET Series by id. Will 404 if id not found */
-	getProfile(id: number): Observable<Profile> {
+	getProfile(id: any): Observable<Profile> {
 	  const url = `${this.profileurl}${id}`;
 	  console.log("URL = " + url);
 	  return this.http.get<Profile>(url).pipe(
 	    tap(_ => this.log(`fetched Profile id=${id}`)),
-	    catchError(this.handleError<Profile>(`getProfile id=${id}`))
+	    catchError(this.handleError<Profile>(`Error getProfile id=${id}`))
 	  );
 	}
 

@@ -1,0 +1,38 @@
+<br>
+<br>
+<div class="container"> <!--style="border:2px solid #000000" class="rounded"-->
+	<div class="container">
+		<div *ngIf="leftfirst" class = "row">
+			<div class = "col-sm-4 col-md-4 ">	
+				<img src="{{ profile.image }}" width="300px" height="400px" alt="Profile Pic Missing">
+			</div>	
+			<div class = "col-sm-8 col-md-8" >	
+				<h1 class="post-title large-text">{{ profile.pen_name }}</h1>
+				<div class="post-meta">{{ profile.designation }}</div>
+				<p>{{profile.bio}}</p>
+				<br><br>
+				<p><b> Other Interests: </b></p>
+				<div class="tag-holder">
+				<div *ngFor="let tg of profile.interests" class="tags">
+              <a href="#" rel="tag">{{ tg.name }}, </a></div>
+          	</div>
+			</div>
+		</div>
+		<div *ngIf="!leftfirst" class = "row">	
+			<div class = "col-sm-8 col-md-8" >	
+				<h1 class="post-title large-text">{{ profile.pen_name }}</h1>
+				<div class="post-meta">{{ profile.designation }}</div>
+				<p>{{profile.bio}}</p>
+				<br><br>
+				<p><b> Other Interests: </b></p>
+				<div class="tag-holder">
+				<div *ngFor="let tg of profile.interests" class="tags">
+              <a href="#" rel="tag">{{ tg.name }}, </a></div>
+          	</div>
+			</div>
+			<div class = "col-sm-4 col-md-4 ">	
+				<img src="{{ profile.image }}" width="300px" height="400px" alt="Profile Pic Missing">
+			</div>
+		</div>
+	</div>
+</div>

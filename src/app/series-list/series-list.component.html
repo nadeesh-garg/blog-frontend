@@ -1,7 +1,7 @@
 <div class = "main">
-<section class="module">
+	<div class = "container col-sm-12 col-md-12" align="center" style="width: 1200px; margin: 0 auto;">
 	<div class="row">
-	<div class = "container col-sm-6 col-md-6 col-sm-offset-1" >
+	<div class = "container col-sm-8 col-md-8" >
 	<form id="searchseries" role="search" onkeypress="return event.keyCode != 13">
 	    <div class="form-group">
 	        <input type="text" #box (keyup)="onKey(box.value)" class="form-control" placeholder="Search">
@@ -10,24 +10,70 @@
 	        </ul-->
 	    </div>
 	</form>
-
-            <div class="container">
-            <div id="{{'masonry-series-item-'+i}}" *ngFor="let ser of series; let i = index;">
-			 	<div class="container-fluid" (mouseover)="hoverover(ser, i)"><app-series-thumbnail [arrowtoggle]="currenthover==i" [series]="ser"></app-series-thumbnail></div>
+	</div>
+	<div class="row-full" id="{{'series-item-'+i}}" *ngFor="let ser of series; let i = index;">
+		<div class = "col-sm-12 col-md-12" align="center">
+			<div class="row">
+			 <div class="col-sm-12 col-md-12" (mouseover)="hoverover(ser, i)">
+			 	<div class="card rounded-top" style="border:1px solid #000000">
+						<div *ngIf="i%2==0" class="row" style="width:100%;">
+							<div class="container col-sm-12 col-md-6">
+    						<h2 class="post-title"><a routerLink="/series/{{ser.slug}}">{{ ser.title }}</a></h2>
+							<span>By <a routerLink="/user/{{ ser.creator.slug }}">{{ ser.creator.pen_name}} </a> &nbsp;| {{ser.create_date | date: 'longDate' }} </span>
+							<div class="post-thumbnail"><a routerLink="/series/{{ser.slug}}"><img src="{{ser.image}}" alt="Series-post Thumbnail"/></a></div>
+							</div>
+						<div class="container col-sm-12 col-md-6">		
+							<div class="desc"><p>{{ ser.description }}</p></div>
+							<div *ngIf="ser.genre.length > 0" class="container-fluid"><p><b> Related Keywords: </b></p>
+								<div class="tag-holder">
+									<div *ngFor="let tg of series.genre" class="tags"></div>
+								</div>
+							</div>
+							<div class="post-more"><a class="more-link" routerLink="/series/{{ser.slug}}">Read more</a></div>
+						</div>
+					</div>
+					<div *ngIf="i%2!=0" class="row" style="width:100%;">
+							<div class="container col-sm-12 col-md-6">		
+							<div class="desc"><p>{{ ser.description }}</p></div>
+							<div *ngIf="ser.genre.length > 0" class="container-fluid"><p><b> Related Keywords: </b></p>
+								<div class="tag-holder">
+									<div *ngFor="let tg of series.genre" class="tags"></div>
+								</div>
+							</div>
+							<div class="post-more"><a class="more-link" routerLink="/series/{{ser.slug}}">Read more</a></div>
+							</div>
+							<div class="container col-sm-12 col-md-6">
+							<br>
+    						<h2 class="post-title"><a routerLink="/series/{{ser.slug}}">{{ ser.title }}</a></h2>
+							<span>By <a routerLink="/user/{{ ser.creator.slug }}">{{ ser.creator.pen_name}} </a> &nbsp;| {{ser.create_date | date: 'longDate' }} </span>
+							<div class="post-thumbnail"><a routerLink="/series/{{ser.slug}}"><img src="{{ser.image}}" alt="Series-post Thumbnail"/></a></div>
+							</div>
+						
+					</div>
+				</div>
+				<div *ngIf="toshowarrow[i]" class="row" >
+					<div class="container col-sm-12 col-mid-12" align="center">
+						<div (click)="click_arrow_down(i);" class="arrow-down" ></div>
+					</div>
+				</div>
+				<div *ngIf="toshowblogs[i]" class="row" >
+					<div id="{{ 'blog-display-'+i }}" class="container col-sm-9 col-md-9"  align="center">
+						<br>
+						<div class="scrolling-wrapper" >
+							<app-blog-thumbnail-small *ngFor="let blog of blogofseries; let j = index;" [blog]="blog"></app-blog-thumbnail-small>
+						</div>
+					</div>
+					<div class="container col-sm-12 col-mid-12" align="center">
+						<div (click)="click_arrow_up(i);" class="arrow-up" ></div>
+					</div>
+				</div>
 			</div>
-			<!--/ng-masonry-grid-item>
-		</ng-masonry-grid-->
-	</div>
-	</div>
-	<div class = "container col-sm-6 col-md-6">
-		<div class="scrolling">
-		<app-blog-list *ngIf="slugsearch" [seriesslug] = "slugsearch"></app-blog-list>
+			</div>
+		</div>
 		</div>
 	</div>
 </div>
-</section>
 </div>
-
 
 
 

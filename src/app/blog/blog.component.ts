@@ -26,18 +26,20 @@ isModalOpen=false;
   ngOnInit() {
   this.getBlogIndexList(); 
   //this.getSlug();	
-  this.isModalOpen=false;
   setTimeout(()=>{    //<<<---    using ()=> syntax
  }, 2000)
-  }
+
+  }  
 
   
    getBlogIndexList(): void {
   	const slug = this.route.snapshot.paramMap.get('id');
    	//	console.log("ifBlock getBlogIndexList")
+
    	this.blogservice.getBlog(slug).subscribe(item =>{
    		this.blog = item;
       this.displaycontentHTML(item.content);
+      this.isModalOpen=false;
    		//console.log();
    		//elem.innerHTcloseByClickingOutside?: boolean;ML = ;		
 	});
@@ -47,7 +49,8 @@ isModalOpen=false;
        var elem = document.getElementById('blogbody');
        var str = content;
        var re = "\/media";
-       elem.innerHTML = str.replace(re, Global.BACKEND_URL+re);
+       elem.innerHTML = str.replace(/\/media/g, Global.BACKEND_URL+re);
    }
 
 }
+//Threads are added to back of queue as javascript executes task after task

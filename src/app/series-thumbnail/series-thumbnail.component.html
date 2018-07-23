@@ -1,10 +1,8 @@
-<div class="row">
-<div class="container col-sm-11 col-mid-11" style="border:1px solid #000000;">
-    <h2 class="post-title"><a routerLink="/series/{{series.slug}}">{{ series.title }}</a></h2>
-		<span>By <a routerLink="/user/{{ series.creator.id }}">{{ series.creator.pen_name}} </a> &nbsp;| {{series.create_date | date: 'longDate' }} </span>
+<!--TO DEFINE THUMBNAIL HERE-->
+<div class="card rounded-top" style="border:1px solid #000000;" align="center">
+	<h5 class="post-title"><a routerLink="/series/{{series.slug}}">{{ series.title }}</a></h5>
+		<span>By <a routerLink="/user/{{ series.creator.slug }}">{{ series.creator.pen_name}} </a> &nbsp;| {{series.create_date | date: 'longDate' }} </span>
 		<div class="post-thumbnail"><a routerLink="/series/{{series.slug}}"><img src="{{series.image}}" alt="Series-post Thumbnail"/></a></div>
 		<div class="desc"><p>{{ series.description }}</p></div>
-	<div class="post-more"><a class="more-link" routerLink="/series/{{series.slug}}">Read more</a></div>
-</div>
-<div *ngIf="arrowtoggle" class="arrow-left col-sm-1 col-md-1 col-mid"></div>
+		<div class="post-more"><a class="more-link" routerLink="/series/{{series.slug}}">Read more</a></div>
 </div>

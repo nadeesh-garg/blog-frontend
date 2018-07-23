@@ -27,19 +27,20 @@ export class BlogListComponent implements OnInit{
   constructor(private blogservice: BlogService, private filterpipe: FilterPipe, private blogindexservice: BlogindexService) { }
 
   ngOnInit() {
-    if(this.seriesslug==undefined){
+    if(this.seriesslug==undefined && this.userId==undefined){
       this.getBlogList();
     }
     //this.ngOnChanges();
   }
 
   ngOnChanges() {
-    this.blogservice.getBlogs(this.seriesslug)
+    this.blogservice.getBlogs(this.seriesslug, this.userId)
       .subscribe(blogs => {
-        this.blogs_all = blogs
-        this.blogs = blogs
-        console.log("CHANGES "+ this.seriesslug)
-        console.log(this.blogs)
+        this.blogs_all = blogs;
+        this.blogs = blogs;
+        this.blogs_current=[];
+        this.blogs_added=[];
+        this.blogs_removed=[];
         this.onKey('');
 
         });
