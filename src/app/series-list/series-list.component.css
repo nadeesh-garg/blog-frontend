@@ -70,7 +70,7 @@ img {
     border: 1px solid #ddd; /* Gray border */
     border-radius: 4px;  /* Rounded border */
     padding: 5px; /* Some padding */
-    max-height:500px;
+    max-height:400px;
     float: center;
 }
 

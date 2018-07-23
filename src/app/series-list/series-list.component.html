@@ -1,4 +1,5 @@
-<div class = "main">
+
+<div class = "main" *ngIf="loaded | async">
 	<div class = "container col-sm-12 col-md-12" align="center" style="width: 1200px; margin: 0 auto;">
 	<div class="row">
 	<div class = "container col-sm-8 col-md-8" >
@@ -37,7 +38,7 @@
 							<div class="desc"><p>{{ ser.description }}</p></div>
 							<div *ngIf="ser.genre.length > 0" class="container-fluid"><p><b> Related Keywords: </b></p>
 								<div class="tag-holder">
-									<div *ngFor="let tg of series.genre" class="tags"></div>
+									<div *ngFor="let tg of series.genre" class="tags">{{ tg.name }}</div>
 								</div>
 							</div>
 							<div class="post-more"><a class="more-link" routerLink="/series/{{ser.slug}}">Read more</a></div>
@@ -57,9 +58,8 @@
 					</div>
 				</div>
 				<div *ngIf="toshowblogs[i]" class="row" >
-					<div id="{{ 'blog-display-'+i }}" class="container col-sm-9 col-md-9"  align="center">
-						<br>
-						<div class="scrolling-wrapper" >
+					<div id="{{ 'blog-display-'+i }}" class="container col-sm-9 col-md-9"  align="center" >
+						<div class="scrolling-wrapper">
 							<app-blog-thumbnail-small *ngFor="let blog of blogofseries; let j = index;" [blog]="blog"></app-blog-thumbnail-small>
 						</div>
 					</div>
@@ -74,6 +74,7 @@
 	</div>
 </div>
 </div>
+
 
 
 

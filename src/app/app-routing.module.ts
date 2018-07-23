@@ -6,7 +6,7 @@ import { BlogComponent } from './blog/blog.component';
 import { SeriesComponent } from './series/series.component'
 import { SeriesListComponent } from './series-list/series-list.component'
 import { ProfileComponent } from './profile/profile.component';
- 
+import { TeamComponent } from './team/team.component'; 
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'blogs/:id', component: BlogComponent },
   { path: 'series', component: SeriesListComponent },
   { path: 'series/:id', component: SeriesComponent },
-  { path: 'user/:id', component: ProfileComponent }
+  { path: 'user/:id', component: ProfileComponent },
+  { path: 'team', component: TeamComponent }
 ];
 
 @NgModule({

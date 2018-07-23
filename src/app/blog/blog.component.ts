@@ -14,6 +14,7 @@ import { Global } from '../globals';
 export class BlogComponent implements OnInit {
 blog: Blog;
 isModalOpen=false;
+blogrecvd: Promise<boolean>;
 //blogindexes: BlogIndex[];
 //blogselect: BlogIndex[];
   constructor(
@@ -26,8 +27,8 @@ isModalOpen=false;
   ngOnInit() {
   this.getBlogIndexList(); 
   //this.getSlug();	
-  setTimeout(()=>{    //<<<---    using ()=> syntax
- }, 2000)
+  //setTimeout(()=>{    //<<<---    using ()=> syntax
+ //}, 2000)
 
   }  
 
@@ -38,11 +39,12 @@ isModalOpen=false;
 
    	this.blogservice.getBlog(slug).subscribe(item =>{
    		this.blog = item;
-      this.displaycontentHTML(item.content);
       this.isModalOpen=false;
-   		//console.log();
-   		//elem.innerHTcloseByClickingOutside?: boolean;ML = ;		
-	});
+      this.blogrecvd=Promise.resolve(true);
+      this.displaycontentHTML(item.content);
+       //console.log();
+       //elem.innerHTcloseByClickingOutside?: boolean;ML = ;    
+  });
    }
 
    displaycontentHTML(content:string): void {

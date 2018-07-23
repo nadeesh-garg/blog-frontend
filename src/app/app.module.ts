@@ -21,7 +21,8 @@ import { Modal } from './blog/myModal.component';
 import { BlogThumbnailComponent } from './blog-thumbnail/blog-thumbnail.component';
 import { SeriesThumbnailComponent } from './series-thumbnail/series-thumbnail.component';
 import { ProfileSummaryComponent } from './profile-summary/profile-summary.component';
-import { BlogThumbnailSmallComponent } from './blog-thumbnail-small/blog-thumbnail-small.component'
+import { BlogThumbnailSmallComponent } from './blog-thumbnail-small/blog-thumbnail-small.component';
+import { TeamComponent } from './team/team.component'
 
 
 //TODO: Find and store blog-list etc. 
@@ -38,7 +39,8 @@ import { BlogThumbnailSmallComponent } from './blog-thumbnail-small/blog-thumbna
     BlogThumbnailComponent,
     SeriesThumbnailComponent,
     ProfileSummaryComponent,
-    BlogThumbnailSmallComponent    //FilterPipe
+    BlogThumbnailSmallComponent,
+    TeamComponent    //FilterPipe
   ],
   imports: [
     BrowserModule,

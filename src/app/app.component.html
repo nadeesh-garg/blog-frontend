@@ -1,10 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
 </div>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/blogs">Blog</a>
-</nav>
+<div class="topnav">
+    <div class="navbar-header">
+       <a class="navbar-brand" href="/">Website Name</a>
+    </div>
+	<div class="topnav-right">
+	<a routerLink="/dashboard">Dashboard</a>
+  	<a routerLink="/blogs">Blog</a>
+  	<a routerLink="/series">Series</a>
+  	<a routerLink="/team">Team</a>
+  	</div>
+</div>
+<br>
+<br>
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+
+<div *ngIf="loading" class="page-loader">
+        <div class="loader">Loading...</div>
+
+</div>
 

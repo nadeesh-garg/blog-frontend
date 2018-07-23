@@ -1,8 +1,32 @@
-<div *ngIf="series">
-<p>
-  {{series.title}} works! 
-  {{series.creator.pen_name}} created it
-</p>
+<div class="main" *ngIf="seriesreceived | async" id="baap">
+   <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-sm-offset-1">
+          <div id="blogpost" class="post">
+            <div class="post-thumbnail"><img src="{{ series.image }}"/></div>
+            <div class="post-header font-alt">
+              <h1 class="post-title large-text">{{ series.title }}</h1>
+              <div class="post-meta">By&nbsp;<a routerLink="/user/{{ series.creator.slug }}">{{series.creator.pen_name}}</a>| Created On: {{ series.create_date | date: 'longDate' }} 
+                    </div>
+            </div>
+            <div id="blogbody" style="white-space:normal; word-wrap: break-word;">{{series.description}}</div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3 right-sidebar">
+          <div class="container">
+            <h4 class="widget-title font-alt">Genre</h4>
+            <div class="tag-holder">
+            <div class="container" *ngIf="series.genre.length > 0">
+            	<div *ngFor="let gn of series.genre" class="tags">
+              		<a href="#" rel="tag">{{ gn.name }}</a>
+            	</div>
+            </div>
+          </div>
+        </div>
+          <br><br><br>
+      </div>
+  </div>
+</div>
 <div class="container">
 <app-blog-list [seriesslug] = "series.slug"></app-blog-list>
 </div>

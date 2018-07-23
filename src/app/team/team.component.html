@@ -1,0 +1,7 @@
+<div *ngIf="datarecv | async" class="container">
+	<div class="container" *ngFor="let profile of profiles; let i = index;">
+		<div class="card col-sm-10 col-md-10" >
+			<app-profile-summary [leftfirst]="i%2==0" [profile]="profile"></app-profile-summary>
+		</div>
+	</div>
+</div>

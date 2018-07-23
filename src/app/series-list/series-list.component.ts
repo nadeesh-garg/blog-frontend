@@ -11,7 +11,7 @@ import { Masonry, MasonryGridItem } from 'ng-masonry-grid'; // import necessary 
   selector: 'app-series-list', /* This is to be used to get grid box in place*/
   templateUrl: './series-list.component.html', 
   styleUrls: ['./series-list.component.css'],
-  })
+})
 
 export class SeriesListComponent implements OnInit{
   @Input() userId: number;
@@ -29,9 +29,9 @@ export class SeriesListComponent implements OnInit{
   lastblogs: number;
   blogofseries: Blog[];
   constructor(private seriesservice: SeriesService, private filterpipe: FilterPipe, private blogservice:BlogService) { }
-
-  ngOnInit() {
-    this.getSeriesList();    
+  loaded:Promise<boolean>;
+  ngOnInit() {    
+    this.getSeriesList();
   }
   //TODO: Remove Masonry and use full grids 
   getSeriesList(): void {
@@ -43,6 +43,7 @@ export class SeriesListComponent implements OnInit{
         this.toshowarrow.fill(false);
         (this.toshowblogs = []).length = series.length;
         this.toshowblogs.fill(false);
+        this.loaded=Promise.resolve(true)
       });
     //this.series2 = this.series.map(x => Object.assign({}, x));;
   }
@@ -108,6 +109,7 @@ export class SeriesListComponent implements OnInit{
     this.toshowblogs[i]=true;
     this.toshowarrow[i]=false;
     this.lastblogs=i;
+
   }
   click_arrow_up(i: number): void {
     this.toshowblogs[i]=false;

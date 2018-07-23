@@ -11,7 +11,8 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./series.component.css']
 })
 export class SeriesComponent implements OnInit {
-	series: Series;
+	seriesreceived: Promise<boolean>;
+  series: Series;
   	constructor(
   		private route: ActivatedRoute,
   		private blogservice: BlogService,
@@ -19,13 +20,12 @@ export class SeriesComponent implements OnInit {
   		private seriesservice: SeriesService) { }
 
   	ngOnInit() {
-  		this.getSeries();
-  	}
+  	  const slug = this.route.snapshot.paramMap.get('id');
+   	  this.seriesservice.getSeries(slug).subscribe(item => {
+         this.series = item;
+         this.seriesreceived = Promise.resolve(true);
 
-  	getSeries(): void {
-  	const slug = this.route.snapshot.paramMap.get('id');
-   	console.log("getSeries")
-   	this.seriesservice.getSeries(slug).subscribe(item => this.series = item);
-	}
+       });
+    }
 
 }
