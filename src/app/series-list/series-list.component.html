@@ -1,10 +1,10 @@
-
+<br>
 <div class = "main" *ngIf="loaded | async">
 	<div class = "container col-sm-12 col-md-12" align="center" style="width: 1200px; margin: 0 auto;">
 	<div class="row">
-	<div class = "container col-sm-8 col-md-8" >
+	<div class = "container col-sm-6 col-md-6" >
 	<form id="searchseries" role="search" onkeypress="return event.keyCode != 13">
-	    <div class="form-group">
+	    <div class="form-group" style="border:1px solid #111111;">
 	        <input type="text" #box (keyup)="onKey(box.value)" class="form-control" placeholder="Search">
 	        <!--ul *ngFor="let blog of blogs">
 	        	<li>{{blog.title}}</li>
@@ -12,53 +12,60 @@
 	    </div>
 	</form>
 	</div>
-	<div class="row-full" id="{{'series-item-'+i}}" *ngFor="let ser of series; let i = index;">
+</div>
+	<div *ngIf="emptysearch" class="row-full"><b>Your search returned no results</b></div>
+	<div class="row-full"  id="{{'series-item-'+i}}" *ngFor="let ser of series; let i = index;">
 		<div class = "col-sm-12 col-md-12" align="center">
 			<div class="row">
-			 <div class="col-sm-12 col-md-12" (mouseover)="hoverover(ser, i)">
-			 	<div class="card rounded-top" style="border:1px solid #000000">
+			 	<div class="card rounded-top" style="border:1px solid #aaa; padding:20px; box-shadow: 10px 10px #ddd;">
+			 	<div class="col-sm-12 col-md-12"  (mouseover)="hoverover(ser, i)">
 						<div *ngIf="i%2==0" class="row" style="width:100%;">
-							<div class="container col-sm-12 col-md-6">
-    						<h2 class="post-title"><a routerLink="/series/{{ser.slug}}">{{ ser.title }}</a></h2>
+							<div class="container col-sm-12 col-md-6" style="border:1px solid #ccc;box-shadow: 0px 5px #ccc;">
+    						<h1 class="post-title-mid"><a routerLink="/series/{{ser.slug}}">{{ ser.title }}</a></h1>
 							<span>By <a routerLink="/user/{{ ser.creator.slug }}">{{ ser.creator.pen_name}} </a> &nbsp;| {{ser.create_date | date: 'longDate' }} </span>
 							<div class="post-thumbnail"><a routerLink="/series/{{ser.slug}}"><img src="{{ser.image}}" alt="Series-post Thumbnail"/></a></div>
 							</div>
-						<div class="container col-sm-12 col-md-6">		
+						<div class="container col-sm-12 col-md-6" align="left" style="border:1px solid #aaa;box-shadow: 5px 5px #ccc;">	
+							<br><br>	
 							<div class="desc"><p>{{ ser.description }}</p></div>
 							<div *ngIf="ser.genre.length > 0" class="container-fluid"><p><b> Related Keywords: </b></p>
 								<div class="tag-holder">
-									<div *ngFor="let tg of series.genre" class="tags"></div>
+									<div *ngFor="let tg of ser.genre" class="tags">
+										<a href="" rel="tags-inv">{{ tg.name }}</a>
+									</div>
 								</div>
 							</div>
-							<div class="post-more"><a class="more-link" routerLink="/series/{{ser.slug}}">Read more</a></div>
+							<div class="post-more" align="right"><a class="more-link" routerLink="/series/{{ser.slug}}">Read more</a></div>
 						</div>
 					</div>
 					<div *ngIf="i%2!=0" class="row" style="width:100%;">
-							<div class="container col-sm-12 col-md-6">		
+							<div class="container col-sm-12 col-md-6 rounded" align="left" style="border:1px solid #aaa; box-shadow: 0px 5px #ccc;">
+							<br><br>		
 							<div class="desc"><p>{{ ser.description }}</p></div>
-							<div *ngIf="ser.genre.length > 0" class="container-fluid"><p><b> Related Keywords: </b></p>
+							<div *ngIf="ser.genre.length > 0" class="container-fluid"><p><b> Related Keywords:</b></p>
 								<div class="tag-holder">
-									<div *ngFor="let tg of series.genre" class="tags">{{ tg.name }}</div>
+									<div *ngFor="let tg of ser.genre" class="tags">
+									<a href="" rel="tags-inv">{{ tg.name }}</a></div>
 								</div>
 							</div>
-							<div class="post-more"><a class="more-link" routerLink="/series/{{ser.slug}}">Read more</a></div>
-							</div>
-							<div class="container col-sm-12 col-md-6">
 							<br>
-    						<h2 class="post-title"><a routerLink="/series/{{ser.slug}}">{{ ser.title }}</a></h2>
+							</div>
+							<div class="container col-sm-12 col-md-6 rounded" style="border:1px solid #ccc; box-shadow: 5px 5px #ccc;">
+    						<h2 class="post-title-mid"><a routerLink="/series/{{ser.slug}}">{{ ser.title }}</a></h2>
 							<span>By <a routerLink="/user/{{ ser.creator.slug }}">{{ ser.creator.pen_name}} </a> &nbsp;| {{ser.create_date | date: 'longDate' }} </span>
 							<div class="post-thumbnail"><a routerLink="/series/{{ser.slug}}"><img src="{{ser.image}}" alt="Series-post Thumbnail"/></a></div>
+							<div class="post-more" align="right"><a class="more-link" routerLink="/series/{{ser.slug}}">Read more</a></div>
 							</div>
 						
 					</div>
-				</div>
 				<div *ngIf="toshowarrow[i]" class="row" >
 					<div class="container col-sm-12 col-mid-12" align="center">
 						<div (click)="click_arrow_down(i);" class="arrow-down" ></div>
 					</div>
 				</div>
-				<div *ngIf="toshowblogs[i]" class="row" >
-					<div id="{{ 'blog-display-'+i }}" class="container col-sm-9 col-md-9"  align="center" >
+				<div *ngIf="toshowblogs[i]" class="card-deck"  align="left">
+					<div id="{{ 'blog-display-'+i }}" class="container-fluid col-sm-12 col-md-12" style="border:1px solid #ccc; background-color: #fff;box-shadow: 5px 5px #ccc;" align="center">
+						<h5 class="post-side-title">Blogs</h5>
 						<div class="scrolling-wrapper">
 							<app-blog-thumbnail-small *ngFor="let blog of blogofseries; let j = index;" [blog]="blog"></app-blog-thumbnail-small>
 						</div>
@@ -69,9 +76,9 @@
 				</div>
 			</div>
 			</div>
+			</div>
 		</div>
 		</div>
-	</div>
 </div>
 </div>
 

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Profile } from '../profile';
 import { ProfileService } from '../profile.service';
+import { Global } from '../globals';
 
 
 @Component({
@@ -26,6 +27,16 @@ export class ProfileComponent implements OnInit {
 	getProfile(): void {
   	const id = ""+this.route.snapshot.paramMap.get('id');
   	console.log("getProfile")
-   	this.profileservice.getProfile(id).subscribe(item => this.profile = item);
+   	this.profileservice.getProfile(id).subscribe(item => {
+         this.profile = item;
+         this.displaycontentHTML(item.bio_full);
+         });
 	}
+
+  displaycontentHTML(content:string): void {
+       var elem = document.getElementById('blogbody');
+       var str = content;
+       var re = "\/media";
+       elem.innerHTML = str.replace(/\/media/g, Global.BACKEND_URL+re);
+   }
 }

@@ -7,22 +7,22 @@
           <div id="blogpost" class="post">
             <div *ngIf="blogrecvd | async" class="post-thumbnail"><img src="{{ blog.welcome_image }}"/></div>
             <div class="post-header font-alt">
-              <h1 class="post-title large-text">{{ blog.title }}</h1>
-              <div class="post-meta">By&nbsp;<a routerLink="/user/{{ blog.author.slug }}">{{blog.author.pen_name}}</a>| {{ blog.pub_date | date: 'longDate' }} | <span><a href="#">Photography, </a><a href="#">Web Design</a></span>
+              <h1 class="post-title-big">{{ blog.title }}</h1>
+              <div class="post-meta">By&nbsp;<a routerLink="/user/{{ blog.author.slug }}">{{blog.author.pen_name}}</a>| {{ blog.pub_date | date: 'longDate' }} | <span></span>
                     </div>
             </div>
             <div id="blogbody" style="white-space:normal; word-wrap: break-word;"></div>
           </div>
         </div>
         <div class="col-sm-3 col-md-3 right-sidebar">
-          <div class="container">
+          <div class="container" align="center">
             <h4 class="widget-title font-alt">Related Terms</h4>
-            <div class="tag-holder">
-            <div *ngFor="let tg of blog.tags" class="tags">
-              <a href="#" rel="tag">{{ tg.name }}</a></div>
-            <div class="container" *ngIf="blog.series">
+            <div class="tag-holder" align="center">
+            <div *ngFor="let tg of blog.tags" class="tags" align="center">
+              <a href="" rel="tag">{{ tg.name }}</a></div>
+            <div class="tag-holder" *ngIf="blog.series">
             <div *ngFor="let gn of blog.series.genre" class="tags">
-              <a href="#" rel="tag">{{ gn.name }}</a>
+              <a href="" rel="tag">{{ gn.name }}</a>
             </div>
             </div>
           </div>

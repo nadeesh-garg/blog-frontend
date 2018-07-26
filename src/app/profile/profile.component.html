@@ -1,6 +1,10 @@
 <div *ngIf="profile">
 <app-profile-summary [leftfirst]="true" [profile]="profile"></app-profile-summary>
-<div class = "container">
+</div>
+<div class="col-sm-9 col-sm-offset-1">
+	<div id="blogbody" style="white-space:normal; word-wrap: break-word;"></div>
+</div>
+<div *ngIf="profile" class = "container">
 <app-blog-list [userId] = "profile.slug"></app-blog-list>
 </div>
 

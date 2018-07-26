@@ -28,6 +28,7 @@ export class SeriesListComponent implements OnInit{
   toshowblogs: boolean[];
   lastblogs: number;
   blogofseries: Blog[];
+  emptysearch=false;
   constructor(private seriesservice: SeriesService, private filterpipe: FilterPipe, private blogservice:BlogService) { }
   loaded:Promise<boolean>;
   ngOnInit() {    
@@ -76,6 +77,12 @@ export class SeriesListComponent implements OnInit{
   editSeriesList(value): void {
     this.series_current = this.filterpipe.transform(this.series_all, value);
     console.log("DEBUG", this.series_current);
+    if(this.series_current.length == 0){
+      this.emptysearch=true;
+    }
+    else{
+     this.emptysearch=false; 
+    }
   }
   onKey(value: string){
      //this.values += value + ' | ';

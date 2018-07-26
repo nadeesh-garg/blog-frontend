@@ -2,12 +2,12 @@
 	<div class="container">
 		<div *ngIf="leftfirst" class = "row">
 			<div class = "col-sm-4 col-md-4 ">	
-				<img src="{{ profile.image }}" width="300px" height="400px" alt="Profile Pic Missing">
+				<a routerLink="/user/{{ profile.slug }}"><img src="{{ profile.image }}" width="300px" height="400px" alt="Profile Pic Missing"></a>
 			</div>	
 			<div class = "col-sm-8 col-md-8" >	
-				<h1 class="post-title large-text">{{ profile.pen_name }}</h1>
+				<h1 class="post-title large-text"><a routerLink="/user/{{ profile.slug }}">{{ profile.pen_name }}</a></h1>
 				<div class="post-meta">{{ profile.designation }}</div>
-				<p>{{profile.bio}}</p>
+				<p>{{profile.bio_summary}}</p>
 				<br><br>
 				<p *ngIf="profile.interests.length > 0"><b> Other Interests: </b></p>
 				<div class="tag-holder">
@@ -18,9 +18,9 @@
 		</div>
 		<div *ngIf="!leftfirst" class = "row">	
 			<div class = "col-sm-8 col-md-8" >	
-				<h1 class="post-title large-text">{{ profile.pen_name }}</h1>
+				<h1 class="post-title large-text"><a routerLink="/user/{{ profile.slug }}">{{ profile.pen_name }}</a></h1>
 				<div class="post-meta">{{ profile.designation }}</div>
-				<p>{{profile.bio}}</p>
+				<p>{{profile.bio_summary}}</p>
 				<br><br>
 				<p *ngIf="profile.interests.length > 0"><b> Other Interests: </b></p>
 				<div class="tag-holder">
@@ -29,7 +29,7 @@
           	</div>
 			</div>
 			<div class = "col-sm-4 col-md-4 ">	
-				<img src="{{ profile.image }}" width="300px" height="400px" alt="Profile Pic Missing">
+				<a routerLink="/user/{{ profile.slug }}"><img src="{{ profile.image }}" width="300px" height="400px" alt="Profile Pic Missing"></a>
 			</div>
 		</div>
 	</div>

@@ -24,6 +24,7 @@ export class BlogListComponent implements OnInit{
   blogs_removed:Blog[];
   blogindexes: BlogIndex[];
   _masonry: Masonry;
+  emptysearch=false;
   constructor(private blogservice: BlogService, private filterpipe: FilterPipe, private blogindexservice: BlogindexService) { }
 
   ngOnInit() {
@@ -98,6 +99,12 @@ export class BlogListComponent implements OnInit{
 
   editBlogList(value): void {
     this.blogs_current = this.filterpipe.transform(this.blogs_all, value);
+    if(this.blogs_current.length == 0){
+      this.emptysearch=true;
+    }
+    else{
+     this.emptysearch=false; 
+    }
     //console.log("DEBUG", this.blogs_current);
   }
   onKey(value: string){

@@ -5,15 +5,14 @@
     <div class="navbar-header">
        <a class="navbar-brand" href="/">Website Name</a>
     </div>
-	<div class="topnav-right">
-	<a routerLink="/dashboard">Dashboard</a>
-  	<a routerLink="/blogs">Blog</a>
-  	<a routerLink="/series">Series</a>
-  	<a routerLink="/team">Team</a>
-  	</div>
+	<div class="topnav-right" *ngFor="let link of link_options; let i=index">
+	  <a id = "{{ 'navbar-item-'+i }}" [ngClass]="{'active-nav': selectedid===i }" (click)="navbar_clicked(i)" routerLink="{{ link }}">{{ menu_options[i] }}</a>
+  </div>
 </div>
-<br>
-<br>
+<div *ngIf="!(selectedid === -1 || selectedid === 2)" [ngClass]="selectedimage">
+    <span class="page-title"><b>{{ menu_options[selectedid] }}</b></span>
+</div>
+
 <router-outlet></router-outlet>
 
 <div *ngIf="loading" class="page-loader">
@@ -21,3 +20,4 @@
 
 </div>
 
+<!--TO MAKE FOOTER HERE-->

@@ -1,6 +1,6 @@
 
 <div class="card rounded-top" style="border:1px solid #000000;" align="center">
-	<h5 class="post-title"><a routerLink="/blogs/{{blog.slug}}">{{ blog.title }}</a></h5>
+	<h4 class="post-title"><a routerLink="/blogs/{{blog.slug}}">{{ blog.title }}</a></h4>
 		<span>By <a routerLink="/user/{{ blog.author.slug }}">{{ blog.author.pen_name}} </a> &nbsp;| {{blog.create_date | date: 'longDate' }} </span>
 		<div class="post-thumbnail"><a routerLink="/blogs/{{blog.slug}}"><img src="{{blog.welcome_image}}" alt="blog-post Thumbnail"/></a></div>
 		<div class="post-more"><a class="more-link" routerLink="/blogs/{{blog.slug}}">Read more</a></div>

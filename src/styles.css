@@ -1251,7 +1251,7 @@ General Styles - Owlcarousel
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 15px 25px;
+  padding: 5px 25px;
   text-decoration: none;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 17px;
@@ -1264,7 +1264,7 @@ General Styles - Owlcarousel
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+.active-nav {
   background-color: #4CAF50;
   color: white;
 }
@@ -1406,140 +1406,11 @@ General Styles - Owlcarousel
 /*--------------------------------------------------------------
 	Header
 --------------------------------------------------------------*/
-.home-section {
-  position: relative;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 100%;
-  z-index: 0;
-  background-size: cover;
-}
 
-.titan-title-size-1 {
-  letter-spacing: 4px;
-  font-size: 15px;
+.page-title {
+  font-family: 'Roboto', serif;
+  font-size: 60px;
 }
-
-.titan-title-size-2 {
-  line-height: 1.3;
-  letter-spacing: 3px;
-  font-size: 18px;
-  opacity: .8;
-}
-
-.titan-title-size-3 {
-  letter-spacing: 16px;
-  font-size: 46px;
-}
-
-.titan-title-size-4 {
-  letter-spacing: 24px;
-  font-weight: 400;
-  font-size: 48px;
-}
-
-/* Agency Page Header */
-.agency-page-header:before {
-  background: transparent;
-}
-
-/* About us Page Header */
-.about-page-header:before {
-  background: rgba(2, 2, 2, 0.2);
-}
-
-/* Service Page Header */
-.service-page-header:before {
-  background: rgba(2, 2, 2, 0.1);
-}
-
-/* Pricing Page Header */
-.pricing-page-header {
-  background-position: 40% 14%;
-  background-repeat: no-repeat;
-}
-
-.pricing-page-header:before {
-  background: rgba(2, 2, 2, 0.6);
-}
-
-/* Gallery Page Header */
-.gallery-page-header {
-  background-position: 50% 0%;
-  background-repeat: no-repeat;
-}
-
-.gallery-page-header:before {
-  background: rgba(2, 2, 2, 0.2);
-}
-
-/* Contact Page Header */
-.contact-page-header {
-  background-position: 13% 45%;
-  background-repeat: no-repeat;
-}
-
-.contact-page-header:before {
-  background: rgba(2, 2, 2, 0.5);
-}
-
-/* FAQ Page Header */
-.faq-page-header:before {
-  background: rgba(2, 2, 2, 0.15);
-}
-
-/* Blog Page Header */
-.blog-page-header {
-  background-position: 50% 24%;
-  background-repeat: no-repeat;
-}
-
-.blog-page-header:before {
-  background: rgba(2, 2, 2, 0.3);
-}
-
-/* Restaurant menu Page Header */
-.restaurant-menu-bg:before {
-  background: rgba(2, 2, 2, 0.4);
-}
-
-.restaurant-page-header:before {
-  background: rgba(0, 0, 0, 0.45);
-}
-
-.restaurant-image-overlay:before {
-  background-color: rgba(2, 2, 2, 0.25);
-}
-
-/* Portfolio Page Header */
-.portfolio-page-header {
-  background-position: 50% 50%;
-}
-
-.portfolio-page-header:before {
-  background: rgba(45, 45, 45, 0.45);
-}
-
-/* Landing Page Header */
-.landing-header:before {
-  position: absolute;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(119, 47, 109, 0.52) 95%, rgba(115, 35, 105, 0.58) 100%);
-  content: " ";
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-}
-
-.banner-img {
-  margin-top: -145px;
-}
-
-.shop-page-header:before {
-  background: rgba(34, 34, 34, 0.3);
-}
-
 /*--------------------------------------------------------------
 	Footer
 --------------------------------------------------------------*/
@@ -1587,11 +1458,40 @@ Google map
   margin: 0 0 80px;
 }
 
+.post-side-title {
+  line-height: 1.4;
+  font-size: 22px;
+  color: #111;
+  margin: 0;
+  text-transform: capitalize;
+  font-family: serif; 
+}
+
 .post-title {
   line-height: 1.4;
   font-size: 22px;
   color: #111;
   margin: 0;
+  text-transform: capitalize;
+  font-family: 'Alegreya SC', serif;  
+}
+.post-title-big {
+  line-height: 1.8;
+  font-size: 38px;
+  color: #111;
+  margin: 0;
+  font-family: 'Alegreya SC', serif;
+  text-transform: capitalize;
+
+}
+.post-title-mid {
+  line-height: 1.8;
+  font-size: 30px;
+  color: #111;
+  margin: 0;
+  font-family: 'Alegreya SC', serif;
+  text-transform: capitalize;
+
 }
 
 .post-header {
@@ -1599,7 +1499,6 @@ Google map
 }
 
 .post-meta {
-  text-transform: uppercase;
   font-size: 17px;
   color: #aaa;
 }
@@ -1848,6 +1747,16 @@ Google map
   display: inline-block;
   font-size: 14px;
   color: #fff;
+  padding: 4px 10px 4px 12px;
+  margin: 0 1px 4px;
+  border-radius: 2px;
+}
+
+.tags-inv a {
+  background: #eee;
+  display: inline-block;
+  font-size: 14px;
+  color: #000;
   padding: 4px 10px 4px 12px;
   margin: 0 1px 4px;
   border-radius: 2px;
@@ -2383,4 +2292,36 @@ Google map
 
 img {
     border-radius: 5px 5px 0 0;
+}
+
+.image-blog{
+     height:40em; background-size:cover; width:auto;
+     background-image:url('assets/images/willow-catkin-2152984_1920.jpg');
+     background-position:50% 50%;
+}
+.image-series{
+     height:40em; background-size:cover; width:auto;
+     background-image:url('assets/images/Cuxhaven.jpg');
+     background-position:50% 50%;
+}
+.image-home{
+     height:40em; background-size:cover; width:auto;
+     background-image:url('assets/images/Stillness.jpg');
+     background-position:50% 50%;
+}
+
+.image-blog span {
+  text-shadow: 1px 1px #888;
+  color: #ccc;
+  position: absolute;
+  bottom:180px;
+  right:70px;
+}
+
+.image-series span {
+  text-shadow: 1px 1px #ccc;
+  position: absolute;
+  top:270px;
+  right:40px;
+  color: #111;
 }

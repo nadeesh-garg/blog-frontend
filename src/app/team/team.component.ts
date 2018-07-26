@@ -11,11 +11,12 @@ export class TeamComponent implements OnInit {
   datarecv: Promise<boolean>;
   private profiles: Profile[];
 	
-  constructor(private profileservice: ProfileService, 	) { }
+  constructor(private profileservice: ProfileService,) { }
 
   ngOnInit() {
   	  this.profileservice.getProfiles().subscribe(profiles =>{
   		this.profiles = profiles;
   		this.datarecv=Promise.resolve(true);
   		});
+    }
 }

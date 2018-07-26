@@ -1,7 +1,13 @@
-<div class="card" style="border:1px solid #000000">
+<div class="card" style="border:1px solid #000000" align="center">
     <h2 class="post-title"><a routerLink="/blogs/{{blog.slug}}">{{ blog.title }}</a></h2>
-		<span>By <a routerLink="/user/{{ blog.author.slug }}">{{ blog.author.pen_name }} </a> &nbsp; | {{ blog.pub_date | date: 'longDate' }} | 3 Comments </span>
+		<span>By <a routerLink="/user/{{ blog.author.slug }}">{{ blog.author.pen_name }} </a> &nbsp; | {{ blog.pub_date | date: 'longDate' }} </span>
 		<div class="post-thumbnail"><a routerLink="/blogs/{{blog.slug}}"><img src="{{blog.welcome_image}}" alt="Blog-post Thumbnail"/></a></div>
 		<div class="desc"><p>{{ blog.description }}</p></div>
-	<div class="post-more"><a class="more-link" routerLink="/blogs/{{blog.slug}}">Read more</a></div>
+		<div class="container" align="right">
+		<div class="tag-holder">
+            <div *ngFor="let tg of blog.tags" class="tags">
+              <span class="tag">{{ tg.name }}</span></div>
+          </div>
+      </div>
+	<div class="post-more" align="right"><a class="more-link" routerLink="/blogs/{{blog.slug}}">Read more</a></div>
 </div>
