@@ -2311,7 +2311,7 @@ img {
 }
 
 .image-blog span {
-  text-shadow: 1px 1px #888;
+  /*text-shadow: 1px 1px #888;*/
   color: #ccc;
   position: absolute;
   bottom:180px;
@@ -2319,7 +2319,7 @@ img {
 }
 
 .image-series span {
-  text-shadow: 1px 1px #ccc;
+  /*text-shadow: 1px 1px #ccc;*/
   position: absolute;
   top:270px;
   right:40px;
