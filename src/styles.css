@@ -167,7 +167,6 @@ a,
   padding: 140px 0;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: cover;
 }
 
 /* Module header */
@@ -814,10 +813,21 @@ a,
 /* Forms common style */
 .form-control {
   font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   letter-spacing: 2px;
   font-size: 11px;
   height: 33px;
+  border: 1px solid #EAEAEA;
+  border-radius: 2px;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.form-text-area {
+  font-family: "Roboto Condensed", sans-serif;
+  /*text-transform: uppercase;*/
+  widtxh:inherit;
+  letter-spacing: 2px;
+  font-size: 11px;
   border: 1px solid #EAEAEA;
   border-radius: 2px;
   transition: all 0.4s ease-in-out 0s;
@@ -836,7 +846,7 @@ a,
 
 .input-sm, .form-horizontal .form-group-sm .form-control {
   height: 29px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .rqst-form {
@@ -1242,8 +1252,9 @@ General Styles - Owlcarousel
 --------------------------------------------------------------*/
 
 .topnav {
-    background-color: #333;
+    background-color: #252525;
     overflow: hidden;
+    vertical-align: text-bottom;
 }
 
 /* Style the links inside the navigation bar */
@@ -1255,6 +1266,7 @@ General Styles - Owlcarousel
   text-decoration: none;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 17px;
+  vertical-align: text-bottom;
 }
 
 /* Change the color of links on hover */
@@ -1273,6 +1285,7 @@ General Styles - Owlcarousel
 .topnav-right {
   float: right;
   padding-right: 35px;
+  padding-bottom: 5px;
 }
 
 
@@ -1302,9 +1315,13 @@ General Styles - Owlcarousel
 
 .navbar-header .navbar-brand {
   letter-spacing: 4px;
+  padding-left: 0px;
   font-weight: 400;
   font-size: 23px;
   color: #fff;
+  position: absolute;
+  background-color: #252525;
+  border-radius: 0px 0px 55px 2px;
 }
 
 .navbar-custom .nav li > a {
@@ -1500,7 +1517,7 @@ Google map
 
 .post-meta {
   font-size: 17px;
-  color: #aaa;
+  color: #888;
 }
 
 .post-entry {
@@ -1751,6 +1768,15 @@ Google map
   margin: 0 1px 4px;
   border-radius: 2px;
 }
+.tags span {
+  background: #111;
+  display: inline-block;
+  font-size: 14px;
+  color: #fff;
+  padding: 4px 10px 4px 12px;
+  margin: 0 1px 4px;
+  border-radius: 2px;
+}
 
 .tags-inv a {
   background: #eee;
@@ -1770,6 +1796,10 @@ Google map
 
 .tags a:hover {
   background: rgba(17, 17, 17, 0.6);
+}
+.tags span:hover {
+  background: rgba(17, 17, 17, 0.6);
+  cursor: pointer;
 }
 
 /*--------------------------------------------------------------
@@ -2314,14 +2344,24 @@ img {
   /*text-shadow: 1px 1px #888;*/
   color: #ccc;
   position: absolute;
-  bottom:180px;
+  bottom:170px;
   right:70px;
 }
 
 .image-series span {
   /*text-shadow: 1px 1px #ccc;*/
   position: absolute;
-  top:270px;
+  top:260px;
   right:40px;
   color: #111;
+}
+
+.desc {
+  white-space:normal; 
+  word-wrap: break-word;
+}
+
+.error-code {
+  font-size: 80px;
+  font-family: "Roboto Condensed", sans-serif;
 }

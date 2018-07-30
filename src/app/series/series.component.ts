@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Series } from '../series';
 import { SeriesService } from '../series.service';
@@ -15,13 +15,17 @@ export class SeriesComponent implements OnInit {
   series: Series;
   	constructor(
   		private route: ActivatedRoute,
-  		private blogservice: BlogService,
+  		private router: Router,
+      private blogservice: BlogService,
   		private location: Location,
   		private seriesservice: SeriesService) { }
 
   	ngOnInit() {
   	  const slug = this.route.snapshot.paramMap.get('id');
    	  this.seriesservice.getSeries(slug).subscribe(item => {
+         if(item===undefined){
+         this.router.navigate(['/not-found']);
+         }
          this.series = item;
          this.seriesreceived = Promise.resolve(true);
 

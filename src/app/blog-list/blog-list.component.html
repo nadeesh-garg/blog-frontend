@@ -13,7 +13,7 @@
 	    </div>
 	</form>
 	</div>
-		<div *ngIf="emptysearch" class="row-full"><b>Your search returned no results</b></div>
+		<div *ngIf="emptysearch" class="row-full"><b>No such blogs exist</b></div>
 			<ng-masonry-grid
 					(onNgMasonryInit)="onNgMasonryInit($event)"
     				[masonryOptions]="{ columnWidth: 300, transitionDuration: '0.5s', gutter: 5 }" 

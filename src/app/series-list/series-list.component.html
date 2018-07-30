@@ -31,7 +31,7 @@
 							<div *ngIf="ser.genre.length > 0" class="container-fluid"><p><b> Related Keywords: </b></p>
 								<div class="tag-holder">
 									<div *ngFor="let tg of ser.genre" class="tags">
-										<a href="" rel="tags-inv">{{ tg.name }}</a>
+										<span class="tag">{{ tg.name }}</span>
 									</div>
 								</div>
 							</div>
@@ -45,7 +45,7 @@
 							<div *ngIf="ser.genre.length > 0" class="container-fluid"><p><b> Related Keywords:</b></p>
 								<div class="tag-holder">
 									<div *ngFor="let tg of ser.genre" class="tags">
-									<a href="" rel="tags-inv">{{ tg.name }}</a></div>
+									<span class="tag">{{ tg.name }}</span></div>
 								</div>
 							</div>
 							<br>

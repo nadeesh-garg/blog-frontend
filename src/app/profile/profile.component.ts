@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Profile } from '../profile';
 import { ProfileService } from '../profile.service';
@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
 	private profile: Profile;
 	constructor(
 		private route: ActivatedRoute,
+    private router: Router,
   		private profileservice: ProfileService,
   		private location: Location,
   		) { }
@@ -28,6 +29,9 @@ export class ProfileComponent implements OnInit {
   	const id = ""+this.route.snapshot.paramMap.get('id');
   	console.log("getProfile")
    	this.profileservice.getProfile(id).subscribe(item => {
+         if(item===undefined){
+         this.router.navigate(['/not-found']);
+         }
          this.profile = item;
          this.displaycontentHTML(item.bio_full);
          });

@@ -1,5 +1,5 @@
 import { Component, OnInit, Pipe, PipeTransform, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Blog } from '../blog';
 import { BlogService }  from '../blog.service';
@@ -19,6 +19,7 @@ blogrecvd: Promise<boolean>;
 //blogselect: BlogIndex[];
   constructor(
   		private route: ActivatedRoute,
+      private router: Router,
   		private blogservice: BlogService,
   		private location: Location,
   		//private blogindexservice: BlogindexService
@@ -38,6 +39,9 @@ blogrecvd: Promise<boolean>;
    	//	console.log("ifBlock getBlogIndexList")
 
    	this.blogservice.getBlog(slug).subscribe(item =>{
+      if(item===undefined){
+         this.router.navigate(['/not-found']);
+      }
    		this.blog = item;
       this.isModalOpen=false;
       this.blogrecvd=Promise.resolve(true);

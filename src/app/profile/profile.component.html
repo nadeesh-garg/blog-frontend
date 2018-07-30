@@ -8,8 +8,10 @@
 	<div id="blogbody" style="white-space:normal; word-wrap: break-word;"></div>
 </div>
 </div>
+<div class="container">
 <div *ngIf="profile" class = "container">
 <app-blog-list [userId] = "profile.slug"></app-blog-list>
+</div>
 </div>
 
 	

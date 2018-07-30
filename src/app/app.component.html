@@ -2,8 +2,8 @@
 <div style="text-align:center">
 </div>
 <div class="topnav">
-    <div class="navbar-header">
-       <a class="navbar-brand" href="/">Website Name</a>
+    <div class="navbar-header" >
+       <a class="navbar-brand" href="/"><img src="assets/images/Logo-2.png" width="120" height="70"/></a>
     </div>
 	<div class="topnav-right" *ngFor="let link of link_options; let i=index">
 	  <a id = "{{ 'navbar-item-'+i }}" [ngClass]="{'active-nav': selectedid===i }" (click)="navbar_clicked(i)" routerLink="{{ link }}">{{ menu_options[i] }}</a>
@@ -12,7 +12,9 @@
 <div *ngIf="!(selectedid === -1 || selectedid === 2)" [ngClass]="selectedimage">
     <span class="page-title"><b>{{ menu_options[selectedid] }}</b></span>
 </div>
-
+<div *ngIf="(selectedid === -1 || selectedid === 2)">
+<br><br><br>
+</div>
 <router-outlet></router-outlet>
 
 <div *ngIf="loading" class="page-loader">
@@ -21,3 +23,33 @@
 </div>
 
 <!--TO MAKE FOOTER HERE-->
+<br><br><br><br><br>
+<footer class="footer bg-dark">
+ <div class="container">
+    <div class="row">
+      <div class="col-sm-8">  
+      </div>
+      <div class="col-sm-4" align="right">
+        <form> 
+          <div class="form-group">
+        <p class="copyright font-alt" align="left">Leave a Message Here</p><br>
+          <input class="form-control" type="email" placeholder="Enter Email ID">
+          </div>
+          <div class="form-group">
+          <textarea class="form-text-area col-sm-12" rows="4" placeholder="Comment/Suggestion/Message"></textarea>
+          <button type="submit" class="btn mb-2">Submit</button>
+        </div>
+        </form>  
+      </div>
+    </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2018&nbsp;<a routerLink="/home">Loduz</a>, All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>

@@ -12,7 +12,7 @@
 				<p *ngIf="profile.interests.length > 0"><b> Other Interests: </b></p>
 				<div class="tag-holder">
 				<div *ngFor="let tg of profile.interests" class="tags">
-              <a href="#" rel="tag">{{ tg.name }} </a></div>
+              <span class="tag">{{ tg.name }}</span></div>
           	</div>
 			</div>
 		</div>
@@ -25,7 +25,7 @@
 				<p *ngIf="profile.interests.length > 0"><b> Other Interests: </b></p>
 				<div class="tag-holder">
 				<div *ngFor="let tg of profile.interests" class="tags">
-              <a href="#" rel="tag">{{ tg.name }} </a></div>
+              <span class="tag">{{ tg.name }}</span></div>
           	</div>
 			</div>
 			<div class = "col-sm-4 col-md-4 ">	

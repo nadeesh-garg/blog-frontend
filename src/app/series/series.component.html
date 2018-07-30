@@ -20,7 +20,7 @@
             <h4 *ngIf="series.genre.length > 0" class="widget-title font-alt">Genre</h4>
             <div class="tag-holder" *ngIf="series.genre.length > 0">
             	<div *ngFor="let gn of series.genre" class="tags">
-              		<a href="" rel="tag">{{ gn.name }}</a>
+              		<span class="tag">{{ gn.name }}</span>
             	</div>
             </div>
         </div>

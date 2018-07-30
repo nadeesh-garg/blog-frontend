@@ -22,7 +22,10 @@ import { BlogThumbnailComponent } from './blog-thumbnail/blog-thumbnail.componen
 import { SeriesThumbnailComponent } from './series-thumbnail/series-thumbnail.component';
 import { ProfileSummaryComponent } from './profile-summary/profile-summary.component';
 import { BlogThumbnailSmallComponent } from './blog-thumbnail-small/blog-thumbnail-small.component';
-import { TeamComponent } from './team/team.component'
+import { TeamComponent } from './team/team.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminRedirectComponent } from './admin-redirect/admin-redirect.component';
+import { HomeComponent } from './home/home.component';
 
 
 //TODO: Find and store blog-list etc. 
@@ -40,7 +43,9 @@ import { TeamComponent } from './team/team.component'
     SeriesThumbnailComponent,
     ProfileSummaryComponent,
     BlogThumbnailSmallComponent,
-    TeamComponent    //FilterPipe
+    TeamComponent,
+    NotFoundComponent,    //FilterPipe
+    AdminRedirectComponent, HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ import { TeamComponent } from './team/team.component'
               BlogindexService, 
               SeriesService, 
               ProfileService, 
-              Global],
+              Global,
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
