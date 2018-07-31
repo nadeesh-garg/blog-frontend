@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { BlogindexService } from './blogindex.service';
 import { BlogIndex } from './BlogIndex';
 import { Router,
@@ -22,14 +23,16 @@ export class AppComponent{
  loading = true;
  selectedid=-1;
  selectedimage='image-home';
+ querysubmit: boolean;
 
   constructor(private router: Router) {
     router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event)
 	  this.selectedid = this.link_options.indexOf(this.router.url);
-	  this.selectedimage = this.image_options[this.selectedid];	
-      console.log(this.selectedid,"Current URL");
+	  this.selectedimage = this.image_options[this.selectedid];
+      //console.log(this.selectedid,"Current URL");
     })
+    this.querysubmit=false;
   }
   navbar_clicked(i:number): void {
   	//TODO: On clicking navbar, add css class to element after removing from previous; 
@@ -38,6 +41,11 @@ export class AppComponent{
 	this.selectedimage = this.image_options[i];	
   }
 
+  submitContactForm(form: NgForm):void{
+  	this.querysubmit=true;
+    console.log("DEBUG", form.value.comments, form.value.email);
+    //TODO: Post form to Server
+  }
   // Shows and hides the loading spinner during RouterEvent changes
   navigationInterceptor(event: RouterEvent): void {
     if (event instanceof NavigationStart) {

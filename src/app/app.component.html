@@ -27,19 +27,31 @@
 <footer class="footer bg-dark">
  <div class="container">
     <div class="row">
-      <div class="col-sm-8">  
+      <div class="col-sm-8">
+          <h4 class="copyright font-alt">Beauty&theCreep.com</h4>
       </div>
       <div class="col-sm-4" align="right">
-        <form> 
+        <form *ngIf="!querysubmit" #contactUsForm="ngForm" (ngSubmit)="submitContactForm(contactUsForm)"> 
           <div class="form-group">
         <p class="copyright font-alt" align="left">Leave a Message Here</p><br>
-          <input class="form-control" type="email" placeholder="Enter Email ID">
+          <input class="form-control" ngModel name="email" #email="ngModel" type="email" placeholder="Enter Email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                required>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                  class="alert alert-danger">
+                <div *ngIf = "email.errors?.required">
+                    Email field can't be blank
+                </div>
+                <div *ngIf = "email.errors?.pattern && email.touched">
+                    The email id doesn't seem right
+                </div>
+             </div>
           </div>
           <div class="form-group">
-          <textarea class="form-text-area col-sm-12" rows="4" placeholder="Comment/Suggestion/Message"></textarea>
-          <button type="submit" class="btn mb-2">Submit</button>
+          <textarea ngModel name="comments" class="form-text-area col-sm-12" rows="6" placeholder="Comment/Suggestion/Message"></textarea>
+          <button type="submit" class="btn mb-2" [disabled]="!contactUsForm.form.valid">Submit</button>
         </div>
         </form>  
+          <div *ngIf="querysubmit" class="alert alert-info" align="center"><p>You have submitted a query. Hi5 to that!</p></div>
       </div>
     </div>
             <div class="row">
