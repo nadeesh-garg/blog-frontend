@@ -9,7 +9,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  export class FilterPipe implements PipeTransform {
   //TODO: Edit for Tag support
  transform(items: any[], term: string): any {
-    if (term === undefined || term === '') return items;
+    if (items === undefined || term === undefined || term === '') return items;
     return items.filter(function(item) {
       //console.log(term);
       for(let property in item){
