@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Response } from '@angular/http';
 import { BlogIndex } from './BlogIndex';
 import { MessagesService } from './messages.service';
+import { Global } from './globals';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,7 +13,7 @@ const httpOptions = {
 
 @Injectable()
 export class BlogindexService {
-	private blogindexurl = 'http://localhost:8000/api/all-blogs';
+	private blogindexurl = Global.BACKEND_URL+'/api/all-blogs';
   	public blogWorld: BlogIndex[];
   	//private tempVar: any;
   	constructor(private http: HttpClient,

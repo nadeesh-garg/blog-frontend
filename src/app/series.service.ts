@@ -13,7 +13,7 @@ const httpOptions = {
 
 @Injectable()
 export class SeriesService {
-  private seriesurl = 'http://localhost:8000/api/series/';
+  private seriesurl = Global.BACKEND_URL+'/api/series/';
   
   	constructor(private http: HttpClient,
   				private messageService: MessagesService) { }

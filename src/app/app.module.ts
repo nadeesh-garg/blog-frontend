@@ -45,8 +45,10 @@ import { HomeComponent } from './home/home.component';
     ProfileSummaryComponent,
     BlogThumbnailSmallComponent,
     TeamComponent,
-    NotFoundComponent,    //FilterPipe
-    AdminRedirectComponent, HomeComponent
+    NotFoundComponent,    
+    FilterPipe,
+    AdminRedirectComponent, 
+    HomeComponent
   ],
   imports: [
     BrowserModule,

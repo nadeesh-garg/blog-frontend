@@ -6,6 +6,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Response } from '@angular/http';
 import { Profile } from './profile';
 import { MessagesService } from './messages.service';
+import { Global } from './globals';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,7 +15,7 @@ const httpOptions = {
 
 @Injectable()
 export class ProfileService {
-  private profileurl = 'http://localhost:8000/api/profiles/';
+  private profileurl = Global.BACKEND_URL+'/api/profiles/';
   
   	constructor(private http: HttpClient,
   				private messageService: MessagesService) { }
