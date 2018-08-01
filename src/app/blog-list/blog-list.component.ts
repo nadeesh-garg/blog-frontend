@@ -37,6 +37,7 @@ export class BlogListComponent implements OnInit{
   ngOnChanges() {
     this.blogservice.getBlogs(this.seriesslug, this.userId)
       .subscribe(blogs => {
+        console.log("DEBUG BlogList", blogs);
         this.blogs_all = blogs;
         this.blogs = blogs;
         this.blogs_current=[];
