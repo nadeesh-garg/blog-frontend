@@ -25,6 +25,7 @@ export class BlogListComponent implements OnInit{
   blogindexes: BlogIndex[];
   _masonry: Masonry;
   emptysearch=false;
+  loaded: Promise<boolean>;
   constructor(private blogservice: BlogService, private filterpipe: FilterPipe, private blogindexservice: BlogindexService) { }
 
   ngOnInit() {
@@ -37,14 +38,13 @@ export class BlogListComponent implements OnInit{
   ngOnChanges() {
     this.blogservice.getBlogs(this.seriesslug, this.userId)
       .subscribe(blogs => {
-        console.log("DEBUG BlogList", blogs);
         this.blogs_all = blogs;
         this.blogs = blogs;
         this.blogs_current=[];
         this.blogs_added=[];
         this.blogs_removed=[];
         this.onKey('');
-
+        this.loaded=Promise.resolve(true);
         });
 
   }
@@ -53,8 +53,10 @@ export class BlogListComponent implements OnInit{
   getBlogList(): void {
     this.blogservice.getBlogs(this.seriesslug)
       .subscribe(blogs => {
+        console.log("DEBUG BlogList", blogs);
         this.blogs_all = blogs
         this.blogs = blogs
+        this.loaded=Promise.resolve(true);
         });
   }
   getBlogIndexList(): void {
@@ -118,9 +120,6 @@ export class BlogListComponent implements OnInit{
      this._masonry.layout();
      this.blogs = Object.assign([], this.blogs_current);
   }
-
-	mess = "Hi Sexy"
-
 
 formatDate(date): Date{
           var dateOut = new Date(date);

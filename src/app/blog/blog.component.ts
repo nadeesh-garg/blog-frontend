@@ -46,7 +46,7 @@ blogrecvd: Promise<boolean>;
       this.isModalOpen=false;
       this.blogrecvd=Promise.resolve(true);
       this.displaycontentHTML(item.content);
-       //console.log();
+      console.log("DEBUG", item);
        //elem.innerHTcloseByClickingOutside?: boolean;ML = ;    
   });
    }
