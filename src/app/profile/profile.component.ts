@@ -12,7 +12,7 @@ import { Global } from '../globals';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-	private profile: Profile;
+	public profile: Profile;
 	constructor(
 		private route: ActivatedRoute,
     private router: Router,

@@ -7,6 +7,7 @@ export class Series {
 	public url: string,
 	public genre: string,
 	public creator: Profile,
+	public description: string,
 	public create_date: string,
 	public slug: string,
 	public image: string

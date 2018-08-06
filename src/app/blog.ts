@@ -14,6 +14,7 @@ export class Blog{
 	public slug: string,
 	public create_date: string,
 	public pub_date: string,
-	public content: string
+	public content: string,
+	public tags: any,
 	) { }
 }
