@@ -8,6 +8,11 @@
 # dependencies
 /node_modules
 
+
+# particular files
+/src/app/globals.ts
+
+
 # IDEs and editors
 /.idea
 .project
