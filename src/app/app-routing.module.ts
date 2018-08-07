@@ -14,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/blogs', pathMatch: 'full' },
   { path: 'home', component:HomeComponent },
   { path: 'blogs', component: BlogListComponent },
   { path: 'blogs/:id', component: BlogComponent },

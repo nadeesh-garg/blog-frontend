@@ -3,7 +3,7 @@
 	<div class = "container col-sm-12 col-md-12" align="center" style="width: 1200px; margin: 0 auto;">
 	<div class="row">
 	<div class = "container col-sm-6 col-md-6" >
-	<form id="searchseries" role="search" onkeypress="return event.keyCode != 13">
+	<form *ngIf="series.length>0" id="searchseries" role="search" onkeypress="return event.keyCode != 13">
 	    <div class="form-group" style="border:1px solid #111111;">
 	        <input type="text" #box (keyup)="onKey(box.value)" class="form-control" placeholder="Search">
 	        <!--ul *ngFor="let blog of blogs">
